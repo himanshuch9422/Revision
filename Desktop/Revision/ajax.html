@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="q();">Click Here</button>
+    <div id="q">This text will be change when you will click here</div>
+</body>
+<script>
+    function q(){
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.status ==200 && this.readyState == 4 ){
+                document.getElementById('q').innerHTML = this.responseText;
+            }
+        }
+        xhttp.open('GET', 'Test.txt', true);
+        xhttp.send();
+
+    }
+</script>
+
+</html>
